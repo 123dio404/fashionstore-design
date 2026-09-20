@@ -227,6 +227,10 @@ en vez de en un recorte del diseño. Estado al 2026-09-20:
 | Entrada por voz en la web | CU24 | ⚠️ la web consulta por texto; el prototipo ya tiene pantalla de voz en mobile | Web Speech API en `/reports/analytical` (opcional) |
 | Pantallas de Ajustes, Soporte y Preferencias | mobile | ❌ no hay API detrás | UI estática o endpoints nuevos según RF |
 | `recomendacion_talla` y `perfil_corporal` | CU17 / diccionario (`db/init.sql`) | ❌ sin modelo ni API | fase 2 con AR |
+| Arqueo y cierre de caja del POS | CU12 (prototipo) | ❌ no hay endpoint de sesión de caja | tabla `sesion_caja` (monto inicial, cierre, cuadre) + endpoints |
+| Estado por sugerencia (`visto`/`descartado` por ítem) | CU18 | ⚠️ la API solo maneja el estado del bloque | `PATCH /recommendations/{id}/items/{item_id}` |
+| Historial de consultas analíticas | CU24 | ⚠️ hoy vive solo en la pestaña | persistir consultas + dictamen (tabla propia) |
+| Recuperación de contraseña | CU02 | ❌ no hay endpoint | `POST /auth/forgot-password` + envío de correo |
 
 ## Shell web implementado (Angular)
 
