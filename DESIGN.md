@@ -284,7 +284,7 @@ en vez de en un recorte del diseño. Estado al 2026-09-20:
 | `rating` y nº de reseñas | estrellas en la tarjeta de producto | ❌ no hay modelo de reseñas | tabla `resena` + endpoints (fase 2) |
 | Favoritos (corazón) | tarjeta y detalle de producto | ❌ no hay modelo | tabla `favorito` + endpoints |
 | Imagen, color y código de cupón | banner hero y chip `CÓDIGO: X` de promociones | ❌ no hay campos | + `imagen_url`, `codigo`, `banner_color` en promoción/colección |
-| Respuestas del chatbot con datos reales | CU19 (pedidos, stock, devoluciones) | ⚠️ hoy funciona con reglas por palabras clave y sin historial al modelo | tool-calling / RAG sobre la API (RF25, fase 2) |
+| Respuestas del chatbot con datos reales | CU19 (pedidos, stock, devoluciones) | ✅ el prompt incluye pedidos, stock, promociones, reservas, preferencias e historial de la conversación (RF25); sin proveedor de IA responde igual con esos datos | completar con tool-calling cuando existan devoluciones y reseñas |
 | Entrada por voz en la web | CU24 | ⚠️ la web consulta por texto; el prototipo ya tiene pantalla de voz en mobile | Web Speech API en `/reports/analytical` (opcional) |
 | Pantallas de Ajustes, Soporte y Preferencias | mobile | ❌ no hay API detrás | UI estática o endpoints nuevos según RF |
 | `recomendacion_talla` y `perfil_corporal` | CU17 / diccionario (`db/init.sql`) | ❌ sin modelo ni API | fase 2 con AR |
