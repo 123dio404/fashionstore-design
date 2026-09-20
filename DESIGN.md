@@ -174,6 +174,23 @@ La interfaz **solo muestra lo que el prototipo muestra**. Queda prohibido en pan
 La trazabilidad al documento se mantiene **en el código** (comentario de clase de cada página y campo
 `cu` de `core/navigation.ts`), nunca en la interfaz.
 
+### Auditoría del front heredado (2026-09-20)
+
+Se revisó archivo por archivo de `Fashionstore-web` contra el prototipo y contra el documento, y se
+eliminó todo lo que no venía de ninguno de los dos:
+
+| Qué | Detalle |
+| :-- | :-- |
+| Módulos fuera de alcance | `pages/admin/finance.page.ts` y `operations.page.ts`, sus servicios (`finance`, `operations`), sus modelos y sus entradas de sidebar y de rutas |
+| Componentes UI huérfanos | `shared/ui/button\|spinner\|offline-state\|service-unavailable.component.ts` (0 usos) |
+| Artefacto de API | `openapi.json` en la raíz del repo (283 kB, sin referencias) |
+| CSS duplicado o heredado | definiciones viejas de `.btn*`, `.badge.ok/.warn`, `.page-head`, `.page-title` (ya pisadas por el kit de Figma) y utilidades sin uso: `.eyebrow`, `.page-lead`, `.card-head`, `.stat-card`, `.text-display/h2/body/label`, `.toolbar`, `.error`, `.success`, `.alert-info`, `.badge-success/warning/danger/info/neutral`, `.state-offline/service/success`, `.spinner`, `.loading-row`, `.grid` |
+
+`styles.scss` pasó de **166 a 83 clases** y de **1234 a 1052 líneas**, con los valores alineados a los
+tokens (`--radius-lg`, `--radius-pill`, `--space-*`). Se conservan cinco primitivas del design system
+de Figma (página 4) que hoy ninguna pantalla usa — `btn-secondary`, `btn-brand`, `btn-lg`,
+`field-error-text`, `field-success-text` — porque son el vocabulario del kit.
+
 ### Cambios hechos en el backend (para cumplir el documento)
 
 | Punto | Documento | Antes | Ahora |
