@@ -36,17 +36,18 @@ a las aplicaciones del monorepo.
 | `ProductDetailPage` | `/catalog/:id` | CU08/CU10 | ✅ alineada al diseño (galería + panel de compra) |
 | `CartPage` | `/cart` | CU10 | ✅ funcional |
 | `CheckoutPage` | `/cart` (bloque de pago) | CU11 | ✅ funcional (Stripe vía backend) |
-| `PurchasesPage` | `/purchase-history` | CU16 | ✅ funcional |
-| `ReservationsPage` | `/my-reservations` | CU15 | ✅ funcional |
+| `PurchasesPage` | `/purchase-history` | CU16 | ✅ alineada al diseño (KPIs + detalle por orden) |
+| `ReservationsPage` | `/my-reservations` | CU15 | ✅ alineada al diseño (tarjetas con estado) |
 | `AIRecsPage` | `/recommendations` | CU18 | ✅ funcional (pesos y motivos del documento) |
 | `ChatbotPage` | `/chatbot` | CU19 | ✅ funcional |
 | `PromotionsPage` | `/promotions` | CU20 | ✅ implementada en esta iteración |
 | `DashboardPage` | `/reports/dashboard` | CU23 | ✅ funcional (KPI + tablas) |
-| `UsersPage` | `/admin/users` | CU03 | ✅ funcional |
-| `CatalogAdminPage` | `/admin/products` | CU05 | ✅ funcional |
+| — | `/reservations` | CU14 | ✅ alineada al diseño (tablero por estados + probador) |
+| `UsersPage` | `/admin/users` | CU03 | ✅ alineada al diseño (tabla + drawer) |
+| `CatalogAdminPage` | `/admin/products` | CU05 | ✅ alineada al diseño (tabla + drawer con variantes) |
 | `InventoryPage` | `/admin/inventory` | CU09 | ✅ funcional |
 | `ReportsPage` | `/reports/sales`, `/reports/inventory`, `/reports/analytical` | CU21/CU22/CU24 | ✅ funcional |
-| `POSPage` | `/pos` | CU12 | ✅ funcional |
+| `POSPage` | `/pos` | CU12 | ✅ alineada al diseño (caja → cobro → comprobante) |
 | `BranchesPage` | `/admin/branches` | CU04 | ✅ funcional |
 | `SuppliersPage` | `/admin/suppliers` | CU07 | ✅ funcional |
 | `ParametersPage` | `/admin/parameters` | CU06 | ✅ funcional |
