@@ -45,13 +45,13 @@ a las aplicaciones del monorepo.
 | — | `/reservations` | CU14 | ✅ alineada al diseño (tablero por estados + probador) |
 | `UsersPage` | `/admin/users` | CU03 | ✅ alineada al diseño (tabla + drawer) |
 | `CatalogAdminPage` | `/admin/products` | CU05 | ✅ alineada al diseño (tabla + drawer con variantes) |
-| `InventoryPage` | `/admin/inventory` | CU09 | ✅ funcional |
+| `InventoryPage` | `/admin/inventory` | CU09 | ✅ alineada al diseño (KPIs + drawer de movimientos) |
 | `ReportsPage` | `/reports/sales`, `/reports/inventory`, `/reports/analytical` | CU21/CU22/CU24 | ✅ funcional |
 | `POSPage` | `/pos` | CU12 | ✅ alineada al diseño (caja → cobro → comprobante) |
-| `BranchesPage` | `/admin/branches` | CU04 | ✅ funcional |
-| `SuppliersPage` | `/admin/suppliers` | CU07 | ✅ funcional |
-| `ParametersPage` | `/admin/parameters` | CU06 | ✅ funcional |
-| `PromotionsAdminPage` | `/admin/marketing` | CU20 | ✅ funcional |
+| `BranchesPage` | `/admin/branches` | CU04 | ✅ alineada al diseño (pestañas + drawers) |
+| `SuppliersPage` | `/admin/suppliers` | CU07 | ✅ alineada al diseño (tabla + drawer) |
+| `ParametersPage` | `/admin/parameters` | CU06 | ✅ alineada al diseño (pestañas + drawer) |
+| `PromotionsAdminPage` | `/admin/marketing` | CU20 | ✅ alineada al diseño (pestañas + drawers) |
 | — | `/reservations` | CU14 | ✅ funcional (el prototipo lo lista en el menú POS pero no lo dibuja) |
 | — | `/profile` | CU02 | ✅ funcional |
 
