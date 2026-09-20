@@ -1,0 +1,13 @@
+# Dependencias y artefactos de los prototipos de Figma Make
+node_modules/
+dist/
+.vite/
+*.local
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Editores
+.idea/
+*.swp

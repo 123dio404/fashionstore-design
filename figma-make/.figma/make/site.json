@@ -1,0 +1,10 @@
+{
+  "description": "Explore a modern e-commerce platform for fashion enthusiasts, featuring a streamlined shopping experience with product browsing, detailed views, and easy checkout.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
