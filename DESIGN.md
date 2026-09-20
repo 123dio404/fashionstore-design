@@ -158,6 +158,22 @@ excepción son los datos que el documento prohíbe o no contempla.
 > CU18 de las dos secciones siguientes dicen «se cambia Figma». Ya están aplicados y se conservan
 > como registro de la decisión.
 
+### Regla de UI limpia (aplicada el 2026-09-20)
+
+La interfaz **solo muestra lo que el prototipo muestra**. Queda prohibido en pantalla:
+
+- Códigos de caso de uso (`CU01`…`CU24`) en títulos, subtítulos, insignias del sidebar o breadcrumb.
+- Notas internas de implementación: «el backend…», «la API…», «endpoint…», «backlog…», «todavía no
+  existe…», nombres de variables de entorno (`AI_PROVIDER_MODE`), proveedores concretos de IA
+  (`Google Speech`), etc.
+- Módulos ajenos al sistema: **Finanzas** (cuotas/multas) y **Operaciones** (instalaciones,
+  mantenimiento, uso de espacios) no aparecen ni en el documento (`Parcial1-SI2.md`, 9 módulos) ni en
+  Figma → **eliminados de la web** (rutas, sidebar, páginas, servicios y modelos). El backend todavía
+  conserva `app/api/v1/finance.py` y `app/api/v1/operations.py` (pendiente de limpieza).
+
+La trazabilidad al documento se mantiene **en el código** (comentario de clase de cada página y campo
+`cu` de `core/navigation.ts`), nunca en la interfaz.
+
 ### Cambios hechos en el backend (para cumplir el documento)
 
 | Punto | Documento | Antes | Ahora |
