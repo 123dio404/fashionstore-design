@@ -2,6 +2,38 @@
 
 Todo lo que es material de diseño (no código de producción) vive aquí.
 
+## Este repositorio
+
+`fashionstore-design` es el cuarto repositorio del proyecto, hermano de los tres de código:
+
+| Repositorio | Contenido |
+| :-- | :-- |
+| `fashionstore-backend` | API FastAPI + PostgreSQL |
+| `fashionstore-mobile` | App Flutter |
+| `fashionstore-web` | Cliente Angular 20 |
+| **`fashionstore-design`** (este) | Sistema de diseño, tokens, logo, PNG del archivo Figma y prototipos navegables |
+
+En el workspace local los cuatro viven en la misma carpeta:
+
+```text
+Fashionstore/
+  fashionstore-backend/
+  fashionstore-mobile/
+  Fashionstore-web/
+  design/            ← este repositorio
+```
+
+Si solo clonaste este repositorio, los documentos `DESIGN.md` y `figma-make/README.md` referencian
+rutas de las apps (`Fashionstore-web/...`, `fashionstore-mobile/...`) para indicar **dónde se
+implementó** cada elemento del diseño: clona el repo que necesites para verlo en código.
+
+Publicación (una sola vez):
+
+```bash
+git remote add origin https://github.com/123dio404/fashionstore-design.git
+git push -u origin main
+```
+
 ```text
 design/
   README.md          ← este archivo
