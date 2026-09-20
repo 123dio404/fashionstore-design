@@ -191,6 +191,34 @@ tokens (`--radius-lg`, `--radius-pill`, `--space-*`). Se conservan cinco primiti
 de Figma (página 4) que hoy ninguna pantalla usa — `btn-secondary`, `btn-brand`, `btn-lg`,
 `field-error-text`, `field-success-text` — porque son el vocabulario del kit.
 
+### Login alineado al prototipo web v8 (2026-09-20)
+
+El prototipo web (Figma Make, *Version 8*) es una pantalla a sangre, sin barra pública, con:
+
+- **Panel de marca** (55 %): foto al 35 % sobre `#111827`, logo + wordmark, titular «Moda que inspira,
+  plataforma que impulsa.», claim del sistema y tres cifras.
+- **Formulario** (45 %): «Bienvenida de nuevo», selector **Acceso como** (Cliente · Administrador ·
+  Punto de Venta, cada uno con su color), correo, contraseña con enlace
+  **«¿Olvidaste tu contraseña?»**, botón oscuro `#111827` y pie «© 2026 FashionStore · Versión 3.2.1».
+
+Implementado en `Fashionstore-web` con la foto en `public/img/auth/hero.jpg` (descargada del mismo
+Unsplash del prototipo, para no depender de una URL externa en producción). En `/auth/*` se oculta la
+barra pública y el contenedor va a sangre (`app.isAuthRoute` + `.container.bleed`).
+
+El selector de portal se validó contra el backend: si el rol de la cuenta no corresponde al portal
+elegido, se cierra la sesión y se indica cuál corresponde. El enlace de contraseña abre un aviso
+(la recuperación real es backlog: `auth.py` solo expone `/register` y `/login`).
+
+**Desviaciones deliberadas respecto al prototipo** (todas por datos reales o navegabilidad):
+
+| Prototipo | App | Motivo |
+| :-- | :-- | :-- |
+| `24K+ Productos` · `98% Satisfacción` · `3 Sucursales` | Productos · Sucursales · Marcas (cifras reales del catálogo) | No se inventan métricas: la satisfacción requiere reseñas, que están en el backlog |
+| Cuadro de color con icono de etiqueta | Logo real (`logo.svg`) | El logo es el asset de la página 12 de Figma |
+| Botón «Vista móvil» en el panel de marca | — | Es un control del propio editor de Figma Make, no del producto |
+| Acento `#E05A47` (token `accent` de `ui.tsx`) | `--brand` `#8C3858` | El brand sale del SVG del logo; pendiente confirmar cuál manda en la colección de variables |
+| Sin enlace a registro | «¿No tienes cuenta? Crear una cuenta» | Sin él, `/auth/register` solo se alcanzaría por URL |
+
 ### Cambios hechos en el backend (para cumplir el documento)
 
 | Punto | Documento | Antes | Ahora |
