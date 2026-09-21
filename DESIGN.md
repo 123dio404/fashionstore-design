@@ -314,11 +314,60 @@ CU02), **Catálogo** (panel de filtros + grid de tarjetas, CU08), **Detalle de p
 panel de compra con talla/color, stock por sucursal y carrito, CU08/CU10) y **Colecciones y
 promociones** (banners + productos con descuento, CU20, ruta nueva `/promotions`).
 
-### Decisión sobre la paleta
+### Decisión sobre la paleta (actualizada 2026-09-20)
 
-El prototipo de Figma Make usa el acento terracota `#E05A47`, mientras que el archivo Figma
-(logo exportado, nodo `5:21`) y las dos aplicaciones —Angular y Flutter— usan `#8C3858`.
-Se mantiene **`#8C3858` como token de marca único** (`--brand`) y se adopta del prototipo la
-*estructura y los patrones visuales* (sidebar, tipografías, radios 16, chips pill, tarjetas).
-Cambiar de paleta implica tocar un solo token por aplicación.
+El prototipo de Figma Make (`design/web-mobile.zip` ≡ `design/figma-make/src/`) es la
+**fuente única de verdad** del diseño móvil y usa el acento terracota `#E05A47`.
+El token vino `#8C3858` (del logo exportado, nodo `5:21`) queda **superado** para mobile:
+
+| Token | Valor | Uso |
+| :-- | :-- | :-- |
+| `accent` | `#E05A47` | marca, botones, badges, precios en oferta |
+| `accentDark` | `#C24A38` | estados activos y texto sobre `accentSoft` |
+| `accentSoft` | `#FCEAE6` | fondos de chips y avisos |
+| `dark` | `#111827` | barras, botón primario, texto principal |
+| `background` | `#F8F9FA` | fondo de pantalla |
+| `surface` | `#FFFFFF` | tarjetas |
+| `muted` / `mutedLight` | `#6B7280` / `#9CA3AF` | texto secundario |
+| `border` / `borderLight` | `#E5E7EB` / `#F3F4F6` | bordes y separadores |
+
+Tipografías: **DM Serif Display** (títulos) + **Inter** (cuerpo), vía `google_fonts`.
+El cambio aplica a `fashionstore-mobile` (`lib/core/theme/app_theme.dart`); la app Angular
+mantiene su propia paleta. Los PNG de `design/figma/` quedan como instantáneas históricas.
+
+## Implementación móvil (Flutter) alineada al prototipo
+
+`fashionstore-mobile/lib` reproduce las 20 pantallas de `design/figma-make/src/*.tsx`:
+
+| Prototipo (`src/*.tsx`) | Implementación Flutter |
+| :-- | :-- |
+| `SplashScreen` | `features/splash/splash_screen.dart` |
+| `OnboardingScreen` | `features/onboarding/onboarding_screen.dart` |
+| `LoginScreen` | `features/auth/presentation/login_screen.dart` |
+| `RegisterScreen` | `features/auth/presentation/register_screen.dart` |
+| `HomeScreen` | `features/home/home_screen.dart` |
+| `CatalogScreen` | `features/catalog/presentation/catalog_screen.dart` |
+| `ProductDetail` (en `App.tsx`) | `features/catalog/presentation/product_detail_screen.dart` |
+| `ReservationsScreen` | `features/reservations/reservations_screen.dart` |
+| `CartScreen` | `features/cart/cart_screen.dart` |
+| `CheckoutScreen` | `features/checkout/checkout_screen.dart` |
+| `PurchaseSuccessScreen` | `features/checkout/purchase_success_screen.dart` |
+| `PurchasesScreen` | `features/purchases/purchases_screen.dart` |
+| `ProfileScreen` | `features/profile/profile_screen.dart` |
+| `PreferencesScreen` | `features/preferences/preferences_screen.dart` |
+| `SettingsScreen` | `features/settings/settings_screen.dart` |
+| `SupportScreen` | `features/support/support_screen.dart` |
+| `AIRecommendationsScreen` | `features/ai/ai_recommendations_screen.dart` |
+| `ARFitterScreen` | `features/ar/ar_fitter_screen.dart` |
+| `ChatbotScreen` | `features/chatbot/chatbot_screen.dart` |
+| `VoiceScreen` | `features/voice/voice_screen.dart` |
+| `StateScreens` (demo) | `features/state_demo/state_demo_screen.dart` |
+| `ui.tsx` (kit de UI) | `lib/shared/kit/*` |
+| `data.ts` (datos demo) | `lib/core/data/mock_data.dart` |
+| `App.tsx` (estado + navegación) | `lib/core/state/app_state.dart` + `lib/features/app_shell.dart` |
+
+Catálogo, carrito, reservas, compras, preferencias, chatbot, voz y probador virtual usan los
+datos demo equivalentes a `data.ts`, porque `ProductResponse` del backend no expone imagen,
+marca, colores, tallas ni rating. **Login y Registro sí llaman al backend real**
+(`/auth/login`, `/auth/register`); el resto funciona sin conexión con el catálogo local.
 
